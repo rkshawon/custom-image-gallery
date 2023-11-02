@@ -6,7 +6,7 @@ const ImageCard = ({ id, imageSrc, getSelectedItems }) => {
   return (
     <>
       <div
-        className={`scale-150 w-3 z-10 h-3 text-xl top-4 left-4 absolute rounded-sm cursor-pointer bg-white ${
+        className={`sm:scale-150 w-3 z-10 h-3 text-xl top-2 left-2 sm:top-4 sm:left-4 absolute rounded-sm cursor-pointer bg-white ${
           checked !== id &&
           "opacity-0 group-hover:opacity-100 transition-opacity duration-700"
         }`}
