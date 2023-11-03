@@ -198,6 +198,7 @@ import Header from "./Header";
 import ImageCard from "./ImageCard";
 import imageData from "../data/initialImages";
 import { useRef, useState } from "react";
+import AddImage from "./AddImage";
 
 const ImageContainer = () => {
   const [images, setImages] = useState(imageData);
@@ -216,11 +217,6 @@ const ImageContainer = () => {
 
   const changePosition = (e, index) => {
     draggedOverItem.current = index;
-    const items = [...images];
-    const temp = items[dragItem.current];
-    items.splice(dragItem.current, 1);
-    items.splice(draggedOverItem.current, 0, temp);
-    setImages(items);
   };
 
   const getSelectedItems = (id) => {
@@ -246,7 +242,7 @@ const ImageContainer = () => {
   return (
     <div className="bg-white rounded-lg shadow w-[950px]">
       <Header totalSelected={selected.length} deleteItems={deleteItems} />
-      <div className="p-8 grid grid-cols-5 gap-5">
+      <div className="p-8 grid lg:grid-cols-5 grid-cols-3 md:grid-cols-4 gap-5">
         {images?.map((image, index) => {
           return (
             <div
@@ -274,6 +270,7 @@ const ImageContainer = () => {
             </div>
           );
         })}
+        <AddImage />
       </div>
     </div>
   );
